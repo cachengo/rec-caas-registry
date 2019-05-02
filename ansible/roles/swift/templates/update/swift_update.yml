@@ -1,0 +1,72 @@
+{#
+Copyright 2019 Nokia
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#}
+---
+apiVersion: apps/v1beta2
+kind: DaemonSet
+metadata:
+  name: swift-update
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: swift-update
+  template:
+    metadata:
+      labels:
+        name: swift-update
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      nodeSelector:
+        nodename: caas_master1
+      securityContext:
+        runAsUser: {{ caas.uid.swift }}
+      containers:
+        - name: swift-update
+          image: {{ container_image_names | select('search', '/swift') | list | last }}
+          securityContext:
+            capabilities:
+              add: ["NET_BIND_SERVICE"]
+          args:
+            - BACKEND
+          resources:
+            limits:
+              memory: "4Gi"
+            requests:
+              memory: "1Gi"
+          env:
+            - name: "SWIFT_PART_POWER"
+              value: "7"
+            - name: "SWIFT_PART_HOUR"
+              value: "0"
+            - name: "SWIFT_DISK"
+              value: "swift"
+            - name: "SWIFT_REPLICAS"
+              value: "1"
+            - name: "SWIFT_OAM1_IP"
+              value: "{{ hostvars[groups.caas_master[0]]['networking']['infra_internal']['ip'] }}"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/swift/
+            - name: store
+              mountPath: /srv/node/swift
+      volumes:
+        - name: config
+          hostPath:
+            path: /etc/swift/update/
+        - name: store
+          hostPath:
+            path: /srv/node/swift-update

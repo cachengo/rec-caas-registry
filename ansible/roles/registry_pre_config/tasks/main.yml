@@ -1,0 +1,46 @@
+---
+# Copyright 2019 Nokia
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+- name: create dir for client key files for registry access
+  file:
+    path: "/etc/docker/certs.d/{{ caas.registry_url }}:{{ caas.registry_port }}"
+    state: directory
+
+- name: symlink client key files for registry access
+  file:
+    src: "/etc/docker-registry/{{ item.src }}"
+    dest: "/etc/docker/certs.d/{{ caas.registry_url }}:{{ caas.registry_port }}/{{ item.dest }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: "registry{{ nodeindex }}-key.pem", dest: "client.key" }
+    - { src: "registry{{ nodeindex }}.pem", dest: "client.cert" }
+    - { src: "ca.pem", dest: "ca.crt" }
+
+- name: create dir for client key files for update_registry access
+  file:
+    path: "/etc/docker/certs.d/{{ caas.update_registry_url }}:{{ caas.update_registry_port }}"
+    state: directory
+
+- name: symlink client key files for update_registry access
+  file:
+    src: "/etc/docker-update-registry//{{ item.src }}"
+    dest: "/etc/docker/certs.d/{{ caas.update_registry_url }}:{{ caas.update_registry_port }}/{{ item.dest }}"
+    state: link
+    force: yes
+  with_items:
+    - { src: "update-registry-key.pem", dest: "client.key" }
+    - { src: "update-registry.pem", dest: "client.cert" }
+    - { src: "ca.pem", dest: "ca.crt" }

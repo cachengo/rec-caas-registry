@@ -1,0 +1,7 @@
+[nginx-epel-7]
+name=Nginx Epel
+baseurl=https://dl.fedoraproject.org/pub/epel/7/x86_64/
+enabled=1
+metadata_expire=1d
+gpgcheck=0
+

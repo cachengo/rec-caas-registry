@@ -1,0 +1,75 @@
+##########################
+#      PIP modules       #
+##########################
+##
+> python-dnspython=https://github.com/rthalley/dnspython/archive/v1.15.0.tar.gz
+##
+> python-eventlet=https://github.com/eventlet/eventlet/archive/v0.24.0.tar.gz
+##
+> python-greenlet=https://files.pythonhosted.org/packages/5d/82/2e53a8def6f99db51992ca3a0a2448c3bbec1a9db3a7cbf7d5dad011e138/greenlet-0.4.14.tar.gz
+##
+> python-netifaces=https://files.pythonhosted.org/packages/81/39/4e9a026265ba944ddf1fea176dbb29e0fe50c43717ba4fcf3646d099fe38/netifaces-0.10.7.tar.gz
+##
+> python-pastedeploy=https://pypi.python.org/packages/0f/90/8e20cdae206c543ea10793cbf4136eb9a8b3f417e04e40a29d72d9922cbd/PasteDeploy-1.5.2.tar.gz
+##
+> python-six=https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz
+##
+> python-xattr=https://files.pythonhosted.org/packages/60/80/a1f35bfd3c7ffb78791b2a6a15c233584a102a20547fd96d48933ec453e7/xattr-0.9.6.tar.gz
+##
+> python-PyECLib=https://files.pythonhosted.org/packages/e3/02/2814399e18c10f0ea6912bf7e7ce5e20c9482b4b5fae9f756c72c97cc144/pyeclib-1.5.0.tar.gz
+##
+> python-cryptography=https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz
+##
+> python-lxml=https://files.pythonhosted.org/packages/ca/63/139b710671c1655aed3b20c1e6776118c62e9f9311152f4c6031e12a0554/lxml-4.2.4.tar.gz
+##
+> python-chardet=https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz
+##
+> python-requests=https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz
+##
+#########################
+#      SOMETHINGS       #
+#########################
+##
+> python-cffi=https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz
+##
+> python-pycparser=https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz
+##
+> python-enum-compat=https://pypi.python.org/packages/95/6e/26bdcba28b66126f66cf3e4cd03bcd63f7ae330d29ee68b1f6b623550bfa/enum-compat-0.0.2.tar.gz
+##
+> python-idna=https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz
+##
+> python-enum34=https://pypi.python.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz
+##
+> python-ipaddress=https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz
+##
+> python-setuptools=https://github.com/pypa/setuptools/archive/v40.0.0.tar.gz
+##
+> python-supervisor=https://files.pythonhosted.org/packages/44/60/698e54b4a4a9b956b2d709b4b7b676119c833d811d53ee2500f1b5e96dc3/supervisor-3.3.4.tar.gz
+##
+> python-supervisor-stdout=https://pypi.python.org/packages/ef/98/557ea85b26753c990a00159e32ead242be617754b0f9f2683b0d4350a1b2/supervisor-stdout-0.1.1.tar.gz
+##
+##########################
+#     Main programs      #
+##########################
+##
+> swift=https://tarballs.openstack.org/swift/swift-2.19.0.tar.gz
+##
+##########################
+#          Other         #
+##########################
+##
+> liberasurecode=https://github.com/openstack/liberasurecode/archive/1.5.0.tar.gz
+##
+> gf-complete=http://jerasure.org/jerasure/gf-complete/repository/archive.tar.gz
+#> gf-complete=https://github.com/ceph/gf-complete/archive/master.tar.gz
+##
+> isa-l=https://github.com/01org/isa-l/archive/v2.23.0.tar.gz
+##
+> Jerasure=http://lab.jerasure.org/jerasure/jerasure/repository/archive.tar.gz
+#> Jerasure=https://github.com/tsuraan/Jerasure/archive/master.tar.gz
+##
+> nasm=https://fossies.org/linux/misc/nasm-2.14.02.tar.gz
+#> nasm=http://www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.gz
+##
+
+
