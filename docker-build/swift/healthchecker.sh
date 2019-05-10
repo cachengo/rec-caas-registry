@@ -13,6 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-SWIFT_AUTH_KEY=$(curl --cacert /etc/swift/tls-proxy/ca.pem -Ss -XGET -i -H"X-Auth-User:${SWIFT_TENANT}:${SWIFT_USER}" -H"X-Auth-Key:${SWIFT_PASS}" https://swift.kube-system.svc.nokia.net:8084/auth/v1.0 | grep X-Auth-Token: | awk "{ print \$2 }")
+if [ -z "${SWIFT_URL}" ]; then
+  echo "Error: missing environment variable: SWIFT_URL"
+  exit 1
+fi
 
-curl --fail --cacert /etc/swift/tls-proxy/ca.pem -Ss -XGET -H"X-Auth-Token: ${SWIFT_AUTH_KEY}" https://swift.kube-system.svc.nokia.net:8084/v1.0/AUTH_admin
+SWIFT_AUTH_KEY=$(curl --cacert /etc/swift/tls-proxy/ca.pem -Ss -XGET -i -H"X-Auth-User:${SWIFT_TENANT}:${SWIFT_USER}" -H"X-Auth-Key:${SWIFT_PASS}" "${SWIFT_URL}/auth/v1.0" | grep X-Auth-Token: | awk "{ print \$2 }")
+
+curl --fail --cacert /etc/swift/tls-proxy/ca.pem -Ss -XGET -H"X-Auth-Token: ${SWIFT_AUTH_KEY}" "${SWIFT_URL}/v1.0/AUTH_admin"

@@ -58,6 +58,8 @@ spec:
               value: "1"
             - name: "SWIFT_OAM1_IP"
               value: "{{ hostvars[groups.caas_master[0]]['networking']['infra_internal']['ip'] }}"
+            - name: "SWIFT_URL"
+              value: "{{ caas.swift }}"
           volumeMounts:
             - name: config
               mountPath: /etc/swift/
