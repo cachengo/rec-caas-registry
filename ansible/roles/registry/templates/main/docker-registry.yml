@@ -51,6 +51,9 @@ spec:
             - name: REGISTRY_CONFIG
               value: /etc/docker-registry/docker-registry-main-config.yml
           volumeMounts:
+            - name: time-mount
+              mountPath: /etc/localtime
+              readOnly: true
             - name: config
               mountPath: /etc/docker-registry/
               readOnly: true
@@ -60,6 +63,9 @@ spec:
               mountPath: /etc/ssl/certs/
               readOnly: true
       volumes:
+        - name: time-mount
+          hostPath:
+            path: /etc/localtime
         - name: config
           hostPath:
             path: /etc/docker-registry/
