@@ -27,8 +27,8 @@ BuildArch:      x86_64
 Vendor:         %{_platform_vendor} and docker/distribution unmodified
 Source0:        %{name}-%{version}.tar.gz
 
-Requires: docker-ce >= 18.09.2
-BuildRequires: docker-ce >= 18.09.2
+Requires: docker-ce >= 18.09.2, rsync
+BuildRequires: docker-ce-cli >= 18.09.2, xz
 
 %description
 This rpm contains the docker registry container and ansible for caas subsystem.
@@ -57,7 +57,7 @@ docker build \
 mkdir -p %{_builddir}/%{RPM_NAME}-%{RPM_MAJOR_VERSION}/docker-save/
 
 # Save the container
-docker save %{COMPONENT}:%{IMAGE_TAG} | gzip -c > %{_builddir}/%{RPM_NAME}-%{RPM_MAJOR_VERSION}/docker-save/%{COMPONENT}:%{IMAGE_TAG}.tar
+docker save %{COMPONENT}:%{IMAGE_TAG} | xz -z -T2 > %{_builddir}/%{RPM_NAME}-%{RPM_MAJOR_VERSION}/docker-save/%{COMPONENT}:%{IMAGE_TAG}.tar
 
 # Remove container
 docker rmi -f %{COMPONENT}:%{IMAGE_TAG}
