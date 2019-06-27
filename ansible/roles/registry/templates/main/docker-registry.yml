@@ -35,6 +35,7 @@ spec:
       labels:
         name: registry
     spec:
+      priorityClassName: "system-cluster-critical"
       dnsPolicy: ClusterFirst
       nodeSelector:
         nodetype: caas_master
@@ -50,6 +51,9 @@ spec:
               value: "{{ caas.registry_port }}"
             - name: REGISTRY_CONFIG
               value: /etc/docker-registry/docker-registry-main-config.yml
+          resources:
+            requests:
+              cpu: "10m"
           volumeMounts:
             - name: time-mount
               mountPath: /etc/localtime

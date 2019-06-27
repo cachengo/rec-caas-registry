@@ -28,6 +28,7 @@ spec:
       labels:
         name: swift
     spec:
+      priorityClassName: "system-cluster-critical"
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
       nodeSelector:
@@ -44,8 +45,10 @@ spec:
             - BACKEND
           resources:
             limits:
+              cpu: "1"
               memory: "4Gi"
             requests:
+              cpu: "200m"
               memory: "1Gi"
           env:
             - name: "SWIFT_USER"
