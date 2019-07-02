@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- import_tasks: password_handler.yml 
+- import_tasks: password_handler.yml
 
 - name: create directories
   file:

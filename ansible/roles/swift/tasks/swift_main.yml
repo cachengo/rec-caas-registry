@@ -13,18 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: Get Swift pass from file
-  shell: 'grep "export SWIFT_PASS=" /etc/swift/usr/admin/env_file | awk -F"=" "{ print \$2 }"'
-  register: swift_password_for_template
-
-- name: Get Swift pass from file
-  shell: 'grep "export SWIFT_USER=" /etc/swift/usr/admin/env_file | awk -F"=" "{ print \$2 }"'
-  register: swift_user_for_template
-
-- name: Get Swift pass from file
-  shell: 'grep "export SWIFT_TENANT=" /etc/swift/usr/admin/env_file | awk -F"=" "{ print \$2 }"'
-  register: swift_tenant_for_template
-
 - name: template config files
   template:
     src: "main/{{ item }}"
