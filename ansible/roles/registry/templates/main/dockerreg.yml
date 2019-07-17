@@ -21,8 +21,8 @@ storage:
   delete:
     enabled: true
   swift:
-    username: admin:registry
-    password: {{ swift_registry_pass }}
+    username: admin:admin
+    password: {{ swift_admin_pass }}
     authurl: {{ caas.swift }}/auth/v1.0
     container: dockerregistry
 http:
