@@ -22,7 +22,7 @@ storage:
     enabled: true
   swift:
     username: admin:admin
-    password: {{ swift_admin_pass }}
+    password: {{ caas.swift_credential.password }}
     authurl: {{ caas.swift_update }}/auth/v1.0
     container: dockerregistry
 http:
