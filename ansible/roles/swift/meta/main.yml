@@ -33,6 +33,7 @@ dependencies:
   - role: cert
     instance: "swift{{ nodeindex }}"
     cert_path: /etc/swift/main/tls-proxy
+    common_name: "swift-main"
     alt_names:
       dns:
         - "{{ caas.swift_url }}"
@@ -44,6 +45,7 @@ dependencies:
   - role: cert
     instance: "swift-update{{ nodeindex }}"
     cert_path: /etc/swift/update/tls-proxy
+    common_name: "swift-update"
     alt_names:
       dns:
         - "{{ caas.swift_update_url }}"
