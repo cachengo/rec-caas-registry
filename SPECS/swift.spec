@@ -14,8 +14,8 @@
 
 %define COMPONENT swift
 %define RPM_NAME caas-%{COMPONENT}
-%define RPM_MAJOR_VERSION 2.21.0
-%define RPM_MINOR_VERSION 6
+%define RPM_MAJOR_VERSION 2.22.0
+%define RPM_MINOR_VERSION 0
 %define IMAGE_TAG %{RPM_MAJOR_VERSION}-%{RPM_MINOR_VERSION}
 Name:           %{RPM_NAME}
 Version:        %{RPM_MAJOR_VERSION}
