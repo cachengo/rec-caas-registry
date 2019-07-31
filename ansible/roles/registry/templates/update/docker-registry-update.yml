@@ -25,13 +25,6 @@ spec:
       name: registry-update
   template:
     metadata:
-      annotations:
-        danm.k8s.io/interfaces: |
-          [
-            {
-              "network":"flannel"
-            }
-          ]
       labels:
         name: registry-update
     spec:

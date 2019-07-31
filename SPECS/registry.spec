@@ -96,4 +96,3 @@ fi
 
 %clean
 rm -rf ${buildroot}
-
