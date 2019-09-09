@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM centos:7.6.1810
+FROM centos:7
 MAINTAINER Balint Varga <balint.varga@nokia.com>
 
 ARG SWIFT
@@ -60,12 +60,25 @@ RUN useradd -u 146 -s /sbin/nologin swift \
       libffi-devel \
       python-devel \
       openssl-devel \
+      openssl \
       libxml2-devel \
       libxslt-devel \
-      nginx \
+      gperftools \
+      GeoIP \
+&&  ARCH="$(uname -m)" \ 
+&& yum install -y https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/noarch/nginx-filesystem-1.12.2-2.el7.noarch.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-http-geoip-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-http-image-filter-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-http-perl-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-http-xslt-filter-1.12.2-2.el7.aarch64.rpm \	
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-mail-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-mod-stream-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/aarch64/nginx-debuginfo-1.12.2-2.el7.aarch64.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/noarch/nginx-all-modules-1.12.2-2.el7.noarch.rpm \
+      https://cbs.centos.org/kojifiles/packages/nginx/1.12.2/2.el7/${ARCH}/nginx-1.12.2-2.el7.${ARCH}.rpm \
 
 # prepare nginx service
-&&  touch /run/nginx.pid \
+&& touch /run/nginx.pid \
 &&  chown -R swift:swift /var/lib/nginx /var/log/nginx /run/nginx.pid \
 
 # liberasurecode
